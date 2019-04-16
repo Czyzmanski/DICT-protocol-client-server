@@ -22,9 +22,6 @@ public class RegistrationThread extends ServiceThread {
 			
 			InetSocketAddress languageServerSocket = new InetSocketAddress(hostAddress, portNumber);
 			map.put(languageServerName, languageServerSocket);
-			
-			System.out.println("REGISTRATION");
-			System.out.println(map);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
