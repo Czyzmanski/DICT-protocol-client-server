@@ -24,9 +24,6 @@ public class DelegationThread extends ServiceThread {
 			int clientPort = Integer.parseInt(request[2]);
 			InetSocketAddress languageServerSocket = (InetSocketAddress) map.get(request[1].toUpperCase());
 
-			System.out.println("DELEGATION");
-			System.out.println(Arrays.toString(request));
-
 			if (languageServerSocket == null)
 				reportNoLanguage(clientHostAddress, clientPort);
 			else
