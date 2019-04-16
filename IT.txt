@@ -1,0 +1,2 @@
+pies: cane
+kot: gatto

@@ -1,0 +1,2 @@
+pies: Hund
+kot: Katze
