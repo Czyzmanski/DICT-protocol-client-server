@@ -18,9 +18,6 @@ public class TranslationThread extends ServiceThread {
 		try {
 			String[] request = reader.readLine().trim().split("\\s+");
 			String translation = (String) map.get(request[0].toLowerCase());
-			
-			System.out.println("Translation");
-			System.out.println(request[1] + " " + request[2]);
 
 			Socket recipientSocket = null;
 			BufferedWriter writer = null;
