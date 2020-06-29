@@ -7,30 +7,30 @@ import java.util.Map;
 
 public class RegistrationThread extends ServiceThread {
 
-	public RegistrationThread(Socket clientSocket, Map<String, InetSocketAddress> languageServersMap) throws IOException {
-		super(clientSocket, languageServersMap);
-	}
+    public RegistrationThread(Socket clientSocket, Map<String, InetSocketAddress> languageServersMap) throws IOException {
+        super(clientSocket, languageServersMap);
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void run() {
-		try {
-			String[] registration = reader.readLine().trim().split("\\s+");
-			String languageServerName = registration[0].toUpperCase();
-			String hostAddress = clientSocket.getInetAddress().getHostAddress();
-			int portNumber = Integer.parseInt(registration[1]);
-			
-			InetSocketAddress languageServerSocket = new InetSocketAddress(hostAddress, portNumber);
-			map.put(languageServerName, languageServerSocket);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				dispose();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void run() {
+        try {
+            String[] registration = reader.readLine().trim().split("\\s+");
+            String languageServerName = registration[0].toUpperCase();
+            String hostAddress = clientSocket.getInetAddress().getHostAddress();
+            int portNumber = Integer.parseInt(registration[1]);
+            
+            InetSocketAddress languageServerSocket = new InetSocketAddress(hostAddress, portNumber);
+            map.put(languageServerName, languageServerSocket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                dispose();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
